@@ -5,6 +5,7 @@ CLI tool for determining whether or not a password has been involved in a data b
 
 ### Install
 `go get https://github.com/masonj88/pwnpass`
+If Go environment is default, navigate to ~/go/src/github.com/masonj88/pwnpass and `go install pwnpass.go`
 
 ### Usage
 `pwnpass` will ask you for a password and return a string with information on whether or not it has been pwned
