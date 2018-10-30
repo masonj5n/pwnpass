@@ -9,11 +9,13 @@ If Go environment is default, navigate to ~/go/src/github.com/masonj88/pwnpass a
 `go install pwnpass.go`
 
 ### Usage
-`pwnpass` will ask you for a password and return a string with information on whether or not it has been pwned
-according to https://haveibeenpwned.com.
+`pwnpass` with no arguments will ask you for a password and return a string with information on whether or not it has been pwned
+according to https://haveibeenpwned.com.  This is the preferred usage for passwords in use as the password is never displayed or transmitted in plain text.
 
-Additionally, you can batch process a set of passwords using the `-batch="path/to/file.txt"` flag.  Returning from the API is slow,
-so huge files will take a long time.
+`pwnpass` with the `-p=password` flag can be used to specify a single password to be checked.
 
-Batch processing means the passwords will be in plain text when you pass them in, and the CLI will return information in plain text. 
-DO NOT USE FOR PASSWORDS YOU ARE CURRENTLY USING.  Please use `pwnpass` with no arguments and type in your password that way.
+Additionally, you can batch process a set of passwords using the `-batch="path/to/file.txt"` flag.  The file of passwords should be newline delimited. Returning from the API is slow, so files with many passwords will take a long time.
+
+Batch processing passwords, or specifying a password with the `-p` flag will show the passwords in plain text, so 
+DO NOT USE FOR PASSWORDS YOU ARE CURRENTLY USING.
+Please use `pwnpass` with no arguments and type in your password that way.
