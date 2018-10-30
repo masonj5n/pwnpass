@@ -4,10 +4,11 @@ import (
 	"bufio"
 	"flag"
 	"fmt"
-	"github.com/howeyc/gopass"
-	"github.com/masonj88/pwchecker"
 	"log"
 	"os"
+
+	"github.com/howeyc/gopass"
+	"github.com/masonj88/pwchecker"
 )
 
 func printResults(isHidden, isPwned bool, checkedPass, numTimes string) {
@@ -28,11 +29,12 @@ func printResults(isHidden, isPwned bool, checkedPass, numTimes string) {
 
 func main() {
 
-	// Parse flags for batch processing
+	// Parse flags for batch processing or cli single entry
+	clPntr := flag.String("p", "none", "Plain text password to check")
 	batchPntr := flag.String("batch", "none", "Input path of file to be batch processed")
 	flag.Parse()
 	// Get password input if not batch processing
-	if *batchPntr == "none" {
+	if *batchPntr == "none" && *clPntr == "none" {
 		fmt.Printf("Password: ")
 		passwd, err := gopass.GetPasswd()
 		if err != nil {
@@ -45,7 +47,7 @@ func main() {
 		}
 		printResults(true, rpwd.Pwnd, rpwd.Pwd, rpwd.TmPwnd)
 
-	} else {
+	} else if *clPntr == "none" {
 		file, err := os.Open(*batchPntr)
 		if err != nil {
 			log.Fatal(err)
@@ -65,5 +67,13 @@ func main() {
 		if err := scanner.Err(); err != nil {
 			log.Fatal(err)
 		}
+
+	} else {
+		rpwd, err := pwchecker.CheckForPwnage(*clPntr)
+		if err != nil {
+			fmt.Println("Couldn't return processed password")
+			panic(err)
+		}
+		printResults(false, rpwd.Pwnd, rpwd.Pwd, rpwd.TmPwnd)
 	}
 }
