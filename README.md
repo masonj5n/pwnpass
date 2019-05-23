@@ -1,4 +1,5 @@
 # pwnpass
+[![Go Report Card](https://goreportcard.com/badge/github.com/masonj88/pwnpass)](https://goreportcard.com/report/github.com/masonj88/pwnpass)
 
 CLI tool for determining whether or not a password has been involved in a data breach.
 
