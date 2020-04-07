@@ -1,12 +1,12 @@
 # pwnpass
-[![Go Report Card](https://goreportcard.com/badge/github.com/masonj88/pwnpass)](https://goreportcard.com/report/github.com/masonj88/pwnpass)
+[![Go Report Card](https://goreportcard.com/badge/github.com/masonj188/pwnpass)](https://goreportcard.com/report/github.com/masonj188/pwnpass)
 
 CLI tool for determining whether or not a password has been involved in a data breach.
 
 
 ### Install
-`go get github.com/masonj88/pwnpass` <br>
-If Go environment is default, navigate to ~/go/src/github.com/masonj88/pwnpass and: <br>
+`go get github.com/masonj188/pwnpass` <br>
+If Go environment is default, navigate to ~/go/src/github.com/masonj188/pwnpass and: <br>
 `go install pwnpass.go`
 
 ### Usage
