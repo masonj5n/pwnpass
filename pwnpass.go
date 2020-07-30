@@ -8,7 +8,7 @@ import (
 	"os"
 
 	"github.com/howeyc/gopass"
-	"github.com/masonj88/pwchecker"
+	"github.com/masonj188/pwchecker"
 )
 
 func printResults(isHidden, isPwned bool, checkedPass, numTimes string) {
