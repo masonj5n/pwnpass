@@ -1,4 +1,4 @@
-module pwnpass
+module github.com/masonj188/pwnpass
 
 go 1.12
 
